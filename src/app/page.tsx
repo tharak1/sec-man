@@ -1,5 +1,5 @@
 "use client";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import {useRouter} from "next/navigation";
 
@@ -17,18 +17,14 @@ export default function Home() {
         router.push('/login')
     } catch (error: unknown) {
       console.log("Login failed", error);
-  
-      if (error instanceof Error) {
-          // Check if the error contains a response with data and an error message
-          if ((error as any).response?.data?.error) {
-              console.log((error as any).response.data.error);
-          } else {
-              console.log("Something went wrong. Please try again.");
-          }
+      if (error instanceof AxiosError && error.response?.data?.error) {
+          console.log(error.response.data.error);
+      } else if (error instanceof Error) {
+        console.log(error.message || "Something went wrong. Please try again.");
       } else {
-          console.log("An unknown error occurred.");
+        console.log("An unknown error occurred.");
       }
-    }
+  }
   }
 
   const getUserDetails = async () => {

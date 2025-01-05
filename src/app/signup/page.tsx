@@ -1,5 +1,5 @@
 "use client";
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
@@ -35,13 +35,10 @@ const SignUppage = () => {
           } catch (error: unknown) {
             console.log("Login failed", error);
         
-            if (error instanceof Error) {
-                // Check if the error contains a response with data and an error message
-                if ((error as any).response?.data?.error) {
-                    setError((error as any).response.data.error);
-                } else {
-                    setError("Something went wrong. Please try again.");
-                }
+            if (error instanceof AxiosError && error.response?.data?.error) {
+                setError(error.response.data.error);
+            } else if (error instanceof Error) {
+                setError(error.message || "Something went wrong. Please try again.");
             } else {
                 setError("An unknown error occurred.");
             }

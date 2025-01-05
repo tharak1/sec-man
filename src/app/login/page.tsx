@@ -1,5 +1,5 @@
 "use client";
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import React, { useState } from 'react'
 import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 import Link from "next/link";
@@ -30,12 +30,10 @@ const Loginpage = () => {
     } catch (error: unknown) {
       console.log("Login failed", error);
   
-      if (error instanceof Error) {
-          if ((error as any).response?.data?.error) {
-              setLoginError((error as any).response.data.error);
-          } else {
-              setLoginError("Something went wrong. Please try again.");
-          }
+      if (error instanceof AxiosError && error.response?.data?.error) {
+          setLoginError(error.response.data.error);
+      } else if (error instanceof Error) {
+          setLoginError(error.message || "Something went wrong. Please try again.");
       } else {
           setLoginError("An unknown error occurred.");
       }
