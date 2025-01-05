@@ -32,14 +32,21 @@ const SignUppage = () => {
             const response = await axios.post("/api/users/signup", userDataWithPassword);
             console.log("Signup success", response.data);
             router.push("/login");
-          } catch (error: any) {
-            console.error("Signup failed", error.message);
-            if (error.response && error.response.data && error.response.data.error) {
-              setError(error.response.data.error); 
+          } catch (error: unknown) {
+            console.log("Login failed", error);
+        
+            if (error instanceof Error) {
+                // Check if the error contains a response with data and an error message
+                if ((error as any).response?.data?.error) {
+                    setError((error as any).response.data.error);
+                } else {
+                    setError("Something went wrong. Please try again.");
+                }
             } else {
-              setError("Something went wrong. Please try again."); 
+                setError("An unknown error occurred.");
             }
-          } finally {
+        }
+         finally {
             setLoading(false);
           }
         } else {

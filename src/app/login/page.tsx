@@ -27,15 +27,20 @@ const Loginpage = () => {
       const response = await axios.post("/api/users/login", credentials);
       console.log("Login success", response.data);
       router.push("/");
-    } catch (error: any) {
-      console.log("Login failed", error.message);
+    } catch (error: unknown) {
+      console.log("Login failed", error);
   
-      if (error.response && error.response.data && error.response.data.error) {
-        setLoginError(error.response.data.error); 
+      if (error instanceof Error) {
+          if ((error as any).response?.data?.error) {
+              setLoginError((error as any).response.data.error);
+          } else {
+              setLoginError("Something went wrong. Please try again.");
+          }
       } else {
-        setLoginError("Something went wrong. Please try again."); 
+          setLoginError("An unknown error occurred.");
       }
-    } finally {
+  }
+   finally {
       setLoading(false);
     }
   };

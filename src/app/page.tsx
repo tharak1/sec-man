@@ -15,8 +15,19 @@ export default function Home() {
     try {
         await axios.get('/api/users/logout')
         router.push('/login')
-    } catch (error:any) {
-        console.log(error.message);
+    } catch (error: unknown) {
+      console.log("Login failed", error);
+  
+      if (error instanceof Error) {
+          // Check if the error contains a response with data and an error message
+          if ((error as any).response?.data?.error) {
+              console.log((error as any).response.data.error);
+          } else {
+              console.log("Something went wrong. Please try again.");
+          }
+      } else {
+          console.log("An unknown error occurred.");
+      }
     }
   }
 
