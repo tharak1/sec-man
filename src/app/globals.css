@@ -19,3 +19,49 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Global scrollbar styling */
+html, body {
+  --scrollbar-width: 2px;
+  --scrollbar-track-bg: #f3f4f6; /* light mode */
+  --scrollbar-thumb-bg: #d1d5db; /* light mode */
+  --scrollbar-track-dark-bg: #374151; /* dark mode */
+  --scrollbar-thumb-dark-bg: #6b7280; /* dark mode */
+
+}
+
+/* Universal scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
+}
+
+/* Webkit scrollbar styles */
+*::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-bg);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: 9999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    scrollbar-color: var(--scrollbar-thumb-dark-bg) var(--scrollbar-track-dark-bg);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-dark-bg);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-dark-bg);
+  }
+}
+

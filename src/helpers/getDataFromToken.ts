@@ -16,7 +16,7 @@ import { NextRequest } from "next/server";
 import jwt from "jsonwebtoken";
 
 interface DecodedToken {
-    id: string; // Adjust the type based on your token structure
+    id: string; 
 }
 
 export const getDataFromToken = (request: NextRequest): string => {
@@ -27,6 +27,32 @@ export const getDataFromToken = (request: NextRequest): string => {
     } catch (error) {
         if (error instanceof Error) {
             throw new Error(error.message);
+        }
+        throw new Error("An unknown error occurred while verifying the token.");
+    }
+};
+
+
+
+
+interface DecodedToken {
+    id: string;
+    phno: string;   
+    name: string;
+}
+
+export const getPhnoFromToken = (token: string): string => {
+    try {
+        if (!token) {
+            throw new Error("Token is required.");
+        }
+
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET!) as DecodedToken;
+        console.log(decodedToken);
+        return decodedToken.id;
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Token verification failed: ${error.message}`);
         }
         throw new Error("An unknown error occurred while verifying the token.");
     }

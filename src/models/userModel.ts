@@ -17,6 +17,37 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    site:{
+        type: String,
+        default: "none",
+    },
+    shift:{
+        type: String,
+        default: "none",
+    },
+    shiftTimings: {
+        type: String,
+        default: "none",
+    },
+    acceptedSurgeRequests:[{
+        name: {
+            type: String,
+            required: [true, "Please provide a name"],  
+        },
+        location: {
+            type: String,
+            required: [true, "Please provide a phone number"],
+        },
+        shift: {
+            type: String, 
+            required: [true, "Please provide a password"],
+        },
+        shiftTimings: {
+            type: String,
+            required: [true, "Please provide a password"],
+        },
+    }]
+
 })
 
 const User = mongoose.models.users || mongoose.model("users", userSchema);
