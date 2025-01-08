@@ -294,7 +294,7 @@ const addGuard = async (guard: guards) => {
     getSiteData();
     getSiteSurges();
     fetchGuards();
-},[id, getSiteData, getSiteSurges]);
+},[id]);
 
 
 

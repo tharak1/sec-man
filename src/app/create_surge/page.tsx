@@ -169,7 +169,7 @@ const CreateSurgePage = () => {
 
 useEffect(() => {
   getEditInitialData();
-}, [isEditMode, id, getEditInitialData]);
+}, [isEditMode, id]);
 useEffect(() => {
 },[name, id]);
 

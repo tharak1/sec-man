@@ -102,7 +102,7 @@ const CreateSite = () => {
 
   useEffect(() => {
     geteditInitialData(); 
-  }, [isEditMode, id, geteditInitialData]);
+  }, [isEditMode, id]);
 
     
 

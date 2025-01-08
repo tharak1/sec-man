@@ -62,7 +62,7 @@ const ViewSurgePage = () => {
     
     useEffect(() => {
         getSurgeData();
-    },[id, searchParams, getSurgeData]);
+    },[id, searchParams]);
 
 
   return (
