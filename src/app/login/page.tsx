@@ -30,7 +30,7 @@ const Loginpage = () => {
 
       if(response.data.data.isAdmin === true){
         console.log(response.data.data);
-        router.push("/admin_home");
+        router.push("/sites_display");
       }else{
       router.push("/home");
       }

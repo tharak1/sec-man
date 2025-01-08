@@ -1,9 +1,8 @@
 "use client";   
 import { guards } from '@/models/frontendModels';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import AddGuardCard from './AddGuardCard';
-import axios from 'axios';
 
 interface AddGuardModalProps {
     isOpen:boolean;
@@ -53,11 +52,19 @@ const AddGuardModal: React.FC<AddGuardModalProps> = ({ isOpen, closeModal, guard
                                                             <label htmlFor="courseType" className="block mb-2 text-sm font-medium text-gray-900">{selectedShift}</label>
                                                         </div>
                                                         <div className='h-[580px] overflow-auto w-full p-2' >
-                                                            {guardsData.map((guard: guards) => (
+                                                            {
+                                                                guardsData.length>0?<>
+                                                                    {guardsData.map((guard: guards) => (
                                                                 
-                                                                    <AddGuardCard guard={guard} addGuard={addGuard} key={guard.phno} removeGuard={removeGuard}/>
-                                                                
-                                                            ))}
+                                                                        <AddGuardCard guard={guard} addGuard={addGuard} key={guard.phno} removeGuard={removeGuard}/>
+                                                            
+                                                                    ))}
+                                                                </>:
+                                                                <p className='text-black text-center'>
+                                                                    No inactive guards
+                                                                </p>
+                                                            }
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>

@@ -6,6 +6,7 @@ connect();
 
 export async function GET(request: NextRequest) {
     try {
+        console.log(request);
         const Users = await User.find();
         return NextResponse.json({ success: true, data: Users });
     }catch (error: unknown) {

@@ -30,7 +30,15 @@ const userSchema = new mongoose.Schema({
         default: "none",
     },
     acceptedSurgeRequests:[{
+        surgeId:{
+            type: String,
+            required: [true, "Please provide a name"],  
+        },
         name: {
+            type: String,
+            required: [true, "Please provide a name"],  
+        },
+        address:{
             type: String,
             required: [true, "Please provide a name"],  
         },

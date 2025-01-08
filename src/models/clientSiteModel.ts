@@ -57,6 +57,7 @@ const clientSiteSchema = new mongoose.Schema({
     }],
 })
 
-const ClientSite = mongoose.models.clientSite || mongoose.model("clientsite", clientSiteSchema);
+const ClientSite =
+  mongoose.models.clientsite || mongoose.model('clientsite', clientSiteSchema);
 
 export default ClientSite; 

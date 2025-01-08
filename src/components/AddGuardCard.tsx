@@ -1,6 +1,4 @@
 import { guards } from '@/models/frontendModels';
-import axios, { AxiosError } from 'axios';
-import { set } from 'mongoose';
 import React from 'react'
 
 interface AddGuardCardProps {
@@ -12,8 +10,6 @@ interface AddGuardCardProps {
 const AddGuardCard:React.FC<AddGuardCardProps> = ({ guard, addGuard, removeGuard }) => {
 
   const [added, setAdded] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState<string | null>(null);
 
 
   const handleAddGuard = async() => {

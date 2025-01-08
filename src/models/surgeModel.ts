@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
-import { number } from "yup";
 
 const surgeSchema = new mongoose.Schema({
-    site:{
+    siteId:{
+        type:String,
+        default:"none",
+    },
+    name:{
         type:String,
         required: [true, "Please provide a site name"],
     },
@@ -13,6 +16,10 @@ const surgeSchema = new mongoose.Schema({
     location:{
         type:String,
         required: [true, "Please provide a site name"],
+    },
+    date:{
+        type:String,
+        required: [true, "Please provide a date"],
     },
     shift:{
         type:String,
@@ -40,9 +47,7 @@ const surgeSchema = new mongoose.Schema({
             required: [true, "Please provide a phone number"],
         },
     }]
-
 });
 
-const SurgeSchema = mongoose.model("surgeSchema", surgeSchema);
-export default SurgeSchema;
-
+const Surge = mongoose.models.surge || mongoose.model("surge", surgeSchema);
+export default Surge;

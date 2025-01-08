@@ -1,24 +1,24 @@
 "use client";
 import React, { useState } from 'react'   
-import { siteData } from '@/models/frontendModels';
+import { Surge } from '@/models/frontendModels';
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import Link from 'next/link';
 import axios, { AxiosError } from 'axios';
 
-interface AdminSiteCardProps {
-    site:siteData;
+interface SurgeCardProps {
+    surge:Surge;
     handleDelete: (id: string) => void;
 }
-const AdminSiteCard:React.FC<AdminSiteCardProps> = ({site, handleDelete}) => {
+const SurgeCard:React.FC<SurgeCardProps> = ({surge, handleDelete}) => {
     const [loading,setLoading] = useState(false);
 
     const deleteSite = async () => {
         setLoading(true);
         try { 
-            const res = await axios.delete(`/api/site/clientsite?id=${site._id}`,);
+            const res = await axios.delete(`/api/site/surgesite?id=${surge._id}`,);
             console.log(res.data);
-            handleDelete(site._id!);
+            handleDelete(surge._id!);
         } catch (error: unknown) {
             console.log("Login failed", error);
             if (error instanceof AxiosError && error.response?.data?.error) {
@@ -38,24 +38,25 @@ const AdminSiteCard:React.FC<AdminSiteCardProps> = ({site, handleDelete}) => {
   return (
         <div>
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{site.name}</h5>
-            </a>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Address: {site.address}</p>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Owner name: {site.ownedBy}</p>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Contact No: {site.ownerContactNumber}</p>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">No.of shifts: {site.shifts.length}</p>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Active guards: {site.guards!.length}</p>
+            
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{surge.name}</h5>
+            
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Address: {surge.Address}</p>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Date: {surge.date}</p>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Reason: {surge.reason}</p>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Shift: {surge.shift}: {surge.shiftTimings}</p>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Required guards: {surge.requiredGuards}</p>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Accepted: {surge.acceptedGuards!.length}</p>
 
 
             <div className='w-full flex justify-between'>
-                <Link href={`/view_site?id=${site._id}`}>
+                <Link href={`/view_surge?id=${surge._id}`}>
                     <button className="inline-flex items-center px-3 py-2 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         View
                     </button>
                 </Link>
 
-                <Link href={`/create_site?mode=edit&id=${site._id}`}>
+                <Link href={`/create_surge?mode=edit&id=${surge._id}`}>
                     <button className="inline-flex items-center px-3 py-2 text-lg font-normal text-center text-white bg-orange-500 rounded-lg hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
                         Edit   <CiEdit size={24}/>
                     </button>
@@ -91,4 +92,4 @@ const AdminSiteCard:React.FC<AdminSiteCardProps> = ({site, handleDelete}) => {
   )
 }
 
-export default AdminSiteCard
+export default SurgeCard

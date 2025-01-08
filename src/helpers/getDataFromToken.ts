@@ -26,7 +26,7 @@ export const getDataFromToken = (request: NextRequest): string => {
         return decodedToken.id;
     } catch (error) {
         if (error instanceof Error) {
-            throw new Error(error.message);
+            throw new Error(error.message); 
         }
         throw new Error("An unknown error occurred while verifying the token.");
     }
