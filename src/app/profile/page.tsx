@@ -120,7 +120,7 @@ const ProfiePage = () => {
                 </svg>
             </div>:
             <>
-                <div className='col-span-6 row-span-6 row-start-2 mt-5 p-4 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 flex flex-col items-center overflow-auto'>
+                <div className='col-span-6 row-span-6 row-start-2 max-sm:col-span-12  mt-5 p-4 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 flex flex-col items-center overflow-auto'>
                     <h1 className='text-2xl font-bold text-black dark:text-gray-200'>{userData.name}</h1>
                     <h1 className='text-2xl font-bold text-black dark:text-gray-200'>{userData.phno}</h1>
                     <button className=" px-3 py-2 text-lg font-normal text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={logout}>
@@ -137,7 +137,7 @@ const ProfiePage = () => {
 
                 </div>
 
-                <div className='col-span-6 row-span-11 row-start-2 mt-5 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 mb-2 flex flex-col items-center overflow-auto p-4'>
+                <div className='col-span-6 row-span-11 sm:row-start-2 max-sm:col-span-12 mt-5 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 mb-2 flex flex-col items-center overflow-auto p-4'>
                     <div className='mb-4'>
                         Accepted Surge requests
                     </div>
@@ -182,8 +182,8 @@ const ProfiePage = () => {
                                     </div>
                                     <div className={`col-span-1 max-sm:hidden flex flex-col justify-center items-center border-l-2 border-gray-500 dark:border-gray-300 px-3`}>
                                     <div className='w-full flex flex-col'>
-                                        <button onClick={() => {handleRemove(obj.surgeId,obj._id!)}}>
-                                        {
+                                        <button onClick={() => {handleRemove(obj.surgeId,obj._id!)}} className="inline-flex items-center px-3 py-2 text-lg font-normal text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            {
                                             loading1?
                                             <svg
                                             aria-hidden="true"

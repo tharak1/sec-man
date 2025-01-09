@@ -49,12 +49,12 @@ const Navbar = () => {
   return (
     <div className="w-full flex flex-row justify-between items-center bg-gray-100 dark:bg-slate-600 shadow-md p-3">
         <div className='relative flex flex-row justify-between items-center'>
-            {!userData.isAdmin && 
+            
                 <div className="mr-3 flex items-center text-2xl font-semibold text-gray-900 dark:text-white hover:cursor-pointer "  onClick={homeNavigate}>
                     <Image width={10} height={10} className="w-8 h-6 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
                     AutoDS 
                 </div>
-            }
+            
             {userData.isAdmin &&           
                 <div className='max-sm:hidden flex flex-row'>
                 <Link href={"/sites_display"} className="mx-3 flex items-center text-lg font-semibold text-gray-900 dark:text-white hover:cursor-pointer " >
@@ -82,16 +82,21 @@ const Navbar = () => {
             </div>}
             <div className={`absolute top-[65px] left-[-5px] ${openm1?"":"hidden"} w-[170px] z-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2`}>
                 <div className="w-full flex flex-col items-center justify-center">
-                    <Link href={"/create_site?mode=create"} className="mt-2 mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white hover:cursor-pointer " >
-                        Add site
+                    <Link href={"/sites_display"} className="mx-3 flex items-center text-lg font-semibold text-gray-900 dark:text-white hover:cursor-pointer " >
+                        view Site
                     </Link>
-                    <span className='w-full h-[1px] bg-slate-200'></span>
+                    <span className='w-full h-[0.5px] bg-slate-200'></span>
+                    <Link href={"/create_site?mode=create"} className="mt-2 mb-2 flex items-center text-lg font-semibold text-gray-900 dark:text-white hover:cursor-pointer " >
+                        Add Site
+                    </Link>
+                    <span className='w-full h-[0.5px] bg-slate-200'></span>
                     <Link href={"/create_surge?mode=create"} className="mt-1 mb-2 flex items-center text-lg font-semibold text-gray-900 dark:text-white hover:cursor-pointer " >
                         Add Surge
                     </Link>
+                    <span className='w-full h-[0.5px] bg-slate-200'></span>
                     <Link href={"/surges_display"} className="mx-3 flex items-center text-lg font-semibold text-gray-900 dark:text-white hover:cursor-pointer " >
-                    view Surge
-                </Link>
+                        view Surge
+                    </Link>
                 </div>
             </div>
         </div>
@@ -102,7 +107,7 @@ const Navbar = () => {
             </label>
 
             <div className="relative flex justify-between items-center hover:cursor-pointer" onClick={navigateToProfile} >
-                <Image height={10} width={10} src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" alt="user image" className="h-10 w-10 rounded-full bg-slate-50 border-2 mr-2"/>
+                <Image height={10} width={10} src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user image" className="h-10 w-10 rounded-full bg-slate-50 border-2 mr-2"/>
                 <div className='max-lg:hidden flex flex-col items-end'>
                     <h1>{userData.name}</h1>
                     <h1>{userData.phno}</h1>

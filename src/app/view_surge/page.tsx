@@ -66,7 +66,7 @@ const ViewSurgePage = () => {
 
 
   return (
-    <div className='w-full h-screen grid grid-cols-12 grid-rows-12 gap-1'>
+    <div className='w-full h-screen max-sm:h-full grid grid-cols-12 grid-rows-12 gap-1'>
             <div className='col-span-12 row-span-1 '>
                 <Navbar/>
             </div>
@@ -92,7 +92,7 @@ const ViewSurgePage = () => {
                     </svg>
                 </div>:
                 <>
-                    <div className='col-span-6 row-span-5 row-start-2 mt-5 p-4 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 flex flex-col items-center overflow-auto'>
+                    <div className='col-span-6 row-span-5 row-start-2 max-sm:col-span-12 mt-5 p-4 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 flex flex-col items-center overflow-auto'>
                         <h1 className='text-2xl font-bold text-black dark:text-gray-200'>{surgeData.name}</h1>
                         <div className='flex flex-row justify-between'>
                             <div className='flex flex-col p-4 w-1/2'>
@@ -109,10 +109,10 @@ const ViewSurgePage = () => {
                         </div>
                     </div>
 
-                    <div className='col-span-6 row-span-6 row-start-7 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg m-2 flex flex-col items-center overflow-auto p-2'>
+                    <div className='col-span-6 row-span-6 row-start-7 max-sm:hidden bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg m-2 flex flex-col items-center overflow-auto p-2'>
 
                     </div>
-                    <div className='col-span-6 row-span-11 row-start-2 mt-5 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 mb-2 flex flex-col items-center overflow-auto p-4'>
+                    <div className='col-span-6 row-span-11 max-sm:col-span-12 sm:row-start-2 mt-5 bg-slate-200 dark:bg-gray-700 rounded-lg shadow-lg mx-2 mb-2 flex flex-col items-center overflow-auto p-4'>
                         <div className='mb-4'>
                             Accepted Guards
                         </div>

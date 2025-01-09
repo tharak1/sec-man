@@ -49,7 +49,7 @@ const AdminHomePage = () => {
             <Navbar/>
         </div>
       
-        <form className="col-span-12 row-span-1 max-w-md mx-auto sm:m-4 ">   
+        <form className="col-span-12 row-span-1 sm:max-w-md  mx-auto sm:m-4 max-sm:mx-2">   
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
