@@ -376,7 +376,7 @@ const addGuard = async (guard: guards) => {
                             </svg>
                             </div>
                         ) : siteSurge.length > 0 ? (
-                            <div className='col-span-4 max-sm:col-span-12 row-span-8   bg-white dark:bg-slate-700 rounded-lg  overflow-auto mt-2 space-y-2'>
+                            <div className='col-span-4 max-sm:col-span-12 row-span-8 p-2  bg-white dark:bg-slate-700 rounded-lg  overflow-auto mt-2 space-y-2'>
                                 {/* <div className='w-full grid grid-cols-6 max-sm:grid-cols-2 py-5'>
                                     <div className='col-span-2 flex flex-col justify-start'>
                                         <div>Details</div>
@@ -485,7 +485,7 @@ const addGuard = async (guard: guards) => {
                         </div>
 
                     </div>
-                    <div className='w-full h-full flex flex-col items-center justify-start overflow-auto'>
+                    <div className='w-full h-full flex flex-col items-center justify-start overflow-auto '>
                         {loading1 ? (
                             <div className='col-span-3 row-span-5 max-sm:row-span-8 flex items-center justify-center dark:text-white'>
                             <svg
@@ -506,7 +506,7 @@ const addGuard = async (guard: guards) => {
                             </svg>
                             </div>
                         ) : filteredData.length > 0 ? (
-                            <div className='col-span-3 row-span-8 bg-white dark:bg-slate-700 rounded-lg p-3 overflow-auto mt-2'>
+                            <div className='col-span-3 row-span-8 bg-white dark:bg-slate-700 rounded-lg p-3 overflow-auto mt-2 space-y-2'>
                                 <div className='w-full grid grid-cols-6 max-sm:grid-cols-2 py-5 max-sm:hidden'>
                                     <div className='col-span-1 flex flex-col justify-start'>
                                         <div>Details</div>

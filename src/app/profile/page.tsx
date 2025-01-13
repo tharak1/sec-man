@@ -144,7 +144,7 @@ const ProfiePage = () => {
                     {
  
                         userData.acceptedSurgeRequests!.length > 0 ? (
-                        <div className='col-span-4 row-span-8  bg-white dark:bg-slate-700 rounded-lg  overflow-auto mt-2 space-y-2'>
+                        <div className='col-span-4 row-span-8  bg-white dark:bg-slate-700 rounded-lg  overflow-auto mt-2 p-2 space-y-2'>
                             <div className='w-full grid grid-cols-6 max-sm:grid-cols-2 py-5'>
                                 <div className='col-span-2 flex flex-col justify-start'>
                                     <div>Details</div>

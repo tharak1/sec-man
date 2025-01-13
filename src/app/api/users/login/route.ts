@@ -35,6 +35,7 @@ export async function POST(request: NextRequest){
             id: user._id,
             name: user.name,
             phno: user.phno,
+            isAdmin:user.isAdmin,
             
         }
         //create token
