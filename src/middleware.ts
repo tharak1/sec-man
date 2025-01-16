@@ -15,8 +15,11 @@ const verifyJWT = async (token: string, secret: string) => {
   try {
     const { payload } = await jwtVerify(token, new TextEncoder().encode(secret));
     return payload as unknown;
-  } catch (error:any) {
-    console.error('JWT verification failed:', error.message);
+  }catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('JWT verification failed:', error.message);
+      return null;
+    }
     return null;
   }
 };
